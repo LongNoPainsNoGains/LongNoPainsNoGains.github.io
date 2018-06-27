@@ -131,10 +131,12 @@
 <meta property="og:site_name" content="写在青春边上">
 <meta property="og:description" content="练习发现自己用Mathematica还是太水。。。准备做一些欧拉习题来提升下自己对Mathematica的使用和锻炼一下自己的思维，代码并不想整理，想到哪写到哪。。。。懒得去优化。。。。只想要个结果。在这个网站可以找到翻译的中文版，有时间就做两题去思考下。。。。看能独立完成多少，之前也有做，不过因为时间关系放弃了，现在重新捡起来，就当熟悉下这个软件了~ 1-101 If we list all t">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-06-23T05:47:11.710Z">
+<meta property="og:image" content="https://projecteuler.net/project/images/p015.gif">
+<meta property="og:updated_time" content="2018-06-25T12:42:59.698Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Euler">
 <meta name="twitter:description" content="练习发现自己用Mathematica还是太水。。。准备做一些欧拉习题来提升下自己对Mathematica的使用和锻炼一下自己的思维，代码并不想整理，想到哪写到哪。。。。懒得去优化。。。。只想要个结果。在这个网站可以找到翻译的中文版，有时间就做两题去思考下。。。。看能独立完成多少，之前也有做，不过因为时间关系放弃了，现在重新捡起来，就当熟悉下这个软件了~ 1-101 If we list all t">
+<meta name="twitter:image" content="https://projecteuler.net/project/images/p015.gif">
 
 
 
@@ -590,6 +592,38 @@ newNumber = ((Characters@n // ToExpression) /. {Null -&gt; Nothing})~
    Partition~50;
 (FromDigits /@ newNumber // Total // IntegerDigits)~Take~10
 {5, 5, 3, 7, 3, 7, 6, 2, 3, 0}
+</code></pre><p>14 The following iterative sequence is defined for the set of positive integers:</p>
+<p>n → n/2 (n is even)</p>
+<p>n → 3n + 1 (n is odd)</p>
+<p>Using the rule above and starting with 13, we generate the following sequence:</p>
+<p>13 → 40 → 20 → 10 → 5 → 16 → 8 → 4 → 2 → 1</p>
+<p>It can be seen that this sequence (starting at 13 and finishing at 1) contains 10 terms. Although it has not been proved yet (Collatz Problem), it is thought that all starting numbers finish at 1.</p>
+<p>Which starting number, under one million, produces the longest chain?</p>
+<p>NOTE: Once the chain starts the terms are allowed to go above one million.</p>
+<p>想了一天了，这题没有想出来。。。。我的思路很笨，而且计算速度很慢。。。。。<br>然后看到了这位大佬的。。。。。膜拜。。。。下面程序源自于<br><a href="http://forum.simwe.com/" target="_blank" rel="noopener">simwe</a>论坛的<strong>smarten</strong>，这差距。。。。。。。。</p>
+<pre><code>ff[n_?EvenQ] := ff[n] = ff[n/2] + 1;
+ff[n_?OddQ] := ff[n] = ff[3 n + 1] + 1;
+ff[1] = 1;
+$RecursionLimit = 2000;
+t = Table[{ff[n], n}, {n, 999999}];
+Sort[t][[-1]]
+</code></pre><p>15 Starting in the top left corner of a 2×2 grid, and only being able to move to the right and down, there are exactly 6 routes to the bottom right corner.</p>
+<p><img src="https://projecteuler.net/project/images/p015.gif" alt=""></p>
+<p>How many such routes are there through a 20×20 grid?</p>
+<p>数学功底差。。。。没想到。。。。。</p>
+<p>16 2^15 = 32768 and the sum of its digits is 3 + 2 + 7 + 6 + 8 = 26.</p>
+<p>What is the sum of the digits of the number 2^1000?</p>
+<pre><code>IntegerDigits[2^1000] // Total
+</code></pre><p>17 If the numbers 1 to 5 are written out in words: one, two, three, four, five, then there are 3 + 3 + 5 + 4 + 4 = 19 letters used in total.</p>
+<p>If all the numbers from 1 to 1000 (one thousand) inclusive were written out in words, how many letters would be used?</p>
+<p>NOTE: Do not count spaces or hyphens. For example, 342 (three hundred and forty-two) contains 23 letters and 115 (one hundred and fifteen) contains 20 letters. The use of “and” when writing out numbers is in compliance with British usage.</p>
+<p>目前没遇到可直接给我用的1到1000的英文表示。。。。如果有，我很有思路。。。就是匹配。。。。。</p>
+<p>18  </p>
+<p>19</p>
+<p>20 Factorial digit sum<br>n! means n × (n − 1) × … × 3 × 2 × 1</p>
+<p>For example, 10! = 10 × 9 × … × 3 × 2 × 1 = 3628800, and the sum of the digits in the number 10! is 3 + 6 + 2 + 8 + 8 + 0 + 0 = 27.</p>
+<p>Find the sum of the digits in the number 100!</p>
+<pre><code>100! // IntegerDigits // Total
 </code></pre>
       
     </div>
@@ -726,7 +760,7 @@ newNumber = ((Characters@n // ToExpression) /. {Null -&gt; Nothing})~
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-count">7</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -742,7 +776,7 @@ newNumber = ((Characters@n // ToExpression) /. {Null -&gt; Nothing})~
                <h3 class="widget-title">Tag Cloud</h3>
                <div id="myCanvasContainer" class="widget tagcloud">
                <canvas width="250" height="250" id="resCanvas" style="width=100%">
-                 <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Euler-Project/">Euler Project</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mathematica/">Mathematica</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/快捷键/">快捷键</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/文学/">文学</a><span class="tag-list-count">1</span></li></ul>
+                 <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Euler-Project/">Euler Project</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mathematica/">Mathematica</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Simulink/">Simulink</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/快捷键/">快捷键</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/文学/">文学</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/杂记/">杂记</a><span class="tag-list-count">1</span></li></ul>
                </canvas>
                 </div>
 				</div>
@@ -754,7 +788,7 @@ newNumber = ((Characters@n // ToExpression) /. {Null -&gt; Nothing})~
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-count">6</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -766,12 +800,6 @@ newNumber = ((Characters@n // ToExpression) /. {Null -&gt; Nothing})~
 
           
             <div class="links-of-author motion-element">
-                
-                  <span class="links-of-author-item">
-                    <a href="767301873@qq.com" target="_blank" title="E-Mail">
-                      
-                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
-                  </span>
                 
                   <span class="links-of-author-item">
                     <a href="https://blog.csdn.net/qq_40789676" target="_blank" title="CSDN">
@@ -863,7 +891,7 @@ newNumber = ((Characters@n // ToExpression) /. {Null -&gt; Nothing})~
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">扯了共4.6k字</span>
+  <span class="post-count">扯了共5.9k字</span>
 </div>
 
 

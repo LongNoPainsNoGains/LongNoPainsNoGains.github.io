@@ -132,7 +132,7 @@
 <meta property="og:description" content="注意 一个空位 x_ 表示一个 Mathematica 表达式，两个空位 x__ 表示多个表达式，双空位  表示一个或多个表达式的序列. 三空位 _ 表示零个或多个表达式序列. 在使用三空位时，很容易导致死循环这类错误。 一些 Mathematica 常用函数的变量具有系统设定的默认值，此时不能明确给出x_:v中的默认值，用 x_.来使用其系统设定的默认值。 Mathematica 模式重复运算">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://img2.tiandaoedu.com/www/ueditor/net/upload/2016-11-17/b3d99b82-1db4-417e-bea6-76d5e6f54aa9.jpg">
-<meta property="og:updated_time" content="2018-06-23T06:05:53.449Z">
+<meta property="og:updated_time" content="2018-06-26T06:26:56.650Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Mathematica">
 <meta name="twitter:description" content="注意 一个空位 x_ 表示一个 Mathematica 表达式，两个空位 x__ 表示多个表达式，双空位  表示一个或多个表达式的序列. 三空位 _ 表示零个或多个表达式序列. 在使用三空位时，很容易导致死循环这类错误。 一些 Mathematica 常用函数的变量具有系统设定的默认值，此时不能明确给出x_:v中的默认值，用 x_.来使用其系统设定的默认值。 Mathematica 模式重复运算">
@@ -369,6 +369,10 @@
 <li>f[x_]:=f[x]=rhs 定义一个保存已有值的函数（构造类似斐波那契函数很有用）。</li>
 <li>在 Module 中可以定义局部变量，这样我们可以对其赋值并且改变其值。仅需要赋值一次的可以用With结构建立局部常量；With[{x=x_0,…],body]和body/.x-&gt;x_0类似。</li>
 <li>在纯函数中使用 &amp; 符号时，要注意 &amp; 的优先级很低，必要时要用括号。</li>
+<li>在小的程序中，用 Throw[value] 和 Catch[expr] 的最简单形式是合适的. 但在包含许多块的程序中，最好用Throw@value, tag 和<br>Catch@{expr, form}. 通过保持表达式 tag 和 form 在程序的某一块中，就可以保证 Throw 和 Catch 也在这一块中运行。</li>
+<li>收集在计算过程中产生的表达式. 通过使用 Sow 和 Reap 来实现。</li>
+<li>$RecursionLimit 最大迭代深度  $IterationLimit 最大迭代次数</li>
+<li>Options@f  与 f 相关联的选项的默认值</li>
 </ol>
 <table>
 <thead>
@@ -393,7 +397,7 @@
 Fold[f, x, {a, a, a}]
 </code></pre><p>两者是等价的。</p>
 <h3 id="为什么写博客（要装逼）"><a href="#为什么写博客（要装逼）" class="headerlink" title="为什么写博客（要装逼）"></a>为什么写博客（<del>要装逼</del>）</h3><p>对于表达这一方面一直有所欠缺，有时半天才能冒出来几个字，就像金山寺里面的<strong>天下第一泉</strong>，就冒几个泡~，看得我巨尴尬，囧~</p>
-<h3 id="为什么用Mathematica？"><a href="#为什么用Mathematica？" class="headerlink" title="为什么用Mathematica？"></a>为什么用Mathematica？</h3><p>利用这个软件可以快速的实现自己的想法，可惜的是，调试起来比MATLAB费事了好多，所以一般对图像要求不高的情况下，MATLAB还是首选的工具，Mathematica也内置了大量的函数以及异常强大的超级函数<strong>Manipulate</strong>，这样可以直观的看出函数(或算法的实现)的图像，那种既视感有木有！<a href="http://demonstrations.wolfram.com/author.html?author=Frederick%20Wu" title="Mathematica项目演示笔记作者" target="_blank" rel="noopener">吴飞大神</a>的书我还在看，这个是我在Mathematica官网中的演示项目中，无意之间找到了他，看这些厉害人的代码不得不说是种享受(其实大多看不懂)，面对对象的编程给我带来了巨大的方便，虽说自己也可以用c编点小程序，但是现有的轮子不用未免太可惜~，不过学习Mathematica的路还很漫长，毕竟不是计算机出身，呃呃呃。。。。。说的难听些自己学的不伦不类的~，有了自己的博客了，就可以更多的鬼扯些其他东西了~哈哈~<img src="http://img2.tiandaoedu.com/www/ueditor/net/upload/2016-11-17/b3d99b82-1db4-417e-bea6-76d5e6f54aa9.jpg" alt=""></p>
+<h3 id="为什么用Mathematica？"><a href="#为什么用Mathematica？" class="headerlink" title="为什么用Mathematica？"></a>为什么用Mathematica？</h3><p>利用这个软件可以快速的实现自己的想法，可惜的是，调试起来比MATLAB费事了好多，所以一般对图像要求不高的情况下，MATLAB还是首选的工具，Mathematica也内置了大量的函数以及异常强大的超级函数<strong>Manipulate</strong>，这样可以直观的看出函数(或算法的实现)的图像，那种既视感有木有！<a href="http://demonstrations.wolfram.com/author.html?author=Frederick%20Wu" title="Mathematica项目演示笔记作者" target="_blank" rel="noopener">吴飞大神</a>的书我还在看，这个是我在Mathematica官网中的演示项目中，无意之间找到了他，看这些厉害人的代码不得不说是种享受(其实大多看不懂)，面对对象的编程给我带来了巨大的方便，虽说自己也可以用c编点小程序，但是现有的轮子不用未免太可惜~，越用这个软件越感觉爽，好比拥有了当今世界上最强的计算能力（<font color="#00FFFF"> <del> 别打脸,疼</del> </font> ），不过学习Mathematica的路还很漫长，毕竟不是计算机出身，呃呃呃。。。。。说的难听些自己学的不伦不类的~，，有了自己的博客了，就可以更多的鬼扯些其他东西了~哈哈~<img src="http://img2.tiandaoedu.com/www/ueditor/net/upload/2016-11-17/b3d99b82-1db4-417e-bea6-76d5e6f54aa9.jpg" alt=""></p>
 <h2 id="致谢"><a href="#致谢" class="headerlink" title="致谢"></a>致谢</h2><p>最初对这个软件感兴趣是因为看了<a href="https://blog.csdn.net/robinvista" title="这个人" target="_blank" rel="noopener">robinvista</a>的博客，不得不说的是，写的代码真的好~，估计我还得七八年功夫或未可知~</p>
 
       
@@ -447,6 +451,10 @@ Fold[f, x, {a, a, a}]
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/06/25/Matlab/" rel="prev" title="Simulink">
+                Simulink <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -527,7 +535,7 @@ Fold[f, x, {a, a, a}]
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-count">7</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -543,7 +551,7 @@ Fold[f, x, {a, a, a}]
                <h3 class="widget-title">Tag Cloud</h3>
                <div id="myCanvasContainer" class="widget tagcloud">
                <canvas width="250" height="250" id="resCanvas" style="width=100%">
-                 <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Euler-Project/">Euler Project</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mathematica/">Mathematica</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/快捷键/">快捷键</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/文学/">文学</a><span class="tag-list-count">1</span></li></ul>
+                 <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Euler-Project/">Euler Project</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mathematica/">Mathematica</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Simulink/">Simulink</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/快捷键/">快捷键</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/文学/">文学</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/杂记/">杂记</a><span class="tag-list-count">1</span></li></ul>
                </canvas>
                 </div>
 				</div>
@@ -555,7 +563,7 @@ Fold[f, x, {a, a, a}]
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-count">6</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -567,12 +575,6 @@ Fold[f, x, {a, a, a}]
 
           
             <div class="links-of-author motion-element">
-                
-                  <span class="links-of-author-item">
-                    <a href="767301873@qq.com" target="_blank" title="E-Mail">
-                      
-                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
-                  </span>
                 
                   <span class="links-of-author-item">
                     <a href="https://blog.csdn.net/qq_40789676" target="_blank" title="CSDN">
@@ -664,7 +666,7 @@ Fold[f, x, {a, a, a}]
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">扯了共4.6k字</span>
+  <span class="post-count">扯了共5.9k字</span>
 </div>
 
 
