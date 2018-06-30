@@ -131,10 +131,12 @@
 <meta property="og:site_name" content="写在青春边上">
 <meta property="og:description" content="随手记录一些自己感兴趣的东西 拉氏变换 拉普拉斯变换的运算步骤对于求解线性微分方程尤为有效，它可把微分方程化为容易求解的代数方程来处理，从而使计算简化。在经典控制理论中，对控制系统的分析和综合，都是建立在拉普拉斯变换的基础上的。z变换 在离散系统分析中为简化运算而建立的对函数序列的数学变换，其作用与拉普拉斯变换在连续系统分析中的作用很相似。Z变换对求解线性差分方程是一种简单而有效的方法。控制率看到">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-06-29T23:31:13.736Z">
+<meta property="og:image" content="https://en.wikipedia.org/wiki/File:PID_Compensation_Animated.gif">
+<meta property="og:updated_time" content="2018-06-30T07:53:28.871Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="杂记">
 <meta name="twitter:description" content="随手记录一些自己感兴趣的东西 拉氏变换 拉普拉斯变换的运算步骤对于求解线性微分方程尤为有效，它可把微分方程化为容易求解的代数方程来处理，从而使计算简化。在经典控制理论中，对控制系统的分析和综合，都是建立在拉普拉斯变换的基础上的。z变换 在离散系统分析中为简化运算而建立的对函数序列的数学变换，其作用与拉普拉斯变换在连续系统分析中的作用很相似。Z变换对求解线性差分方程是一种简单而有效的方法。控制率看到">
+<meta name="twitter:image" content="https://en.wikipedia.org/wiki/File:PID_Compensation_Animated.gif">
 
 
 
@@ -372,6 +374,8 @@
 </ol>
 <h3 id="稳定性"><a href="#稳定性" class="headerlink" title="稳定性"></a>稳定性</h3><p>定性是系统的重要特性，是系统正常工作的必要条件，它描述<strong>初始条件</strong>下系统方程的解是否具有<strong>收敛性</strong>，而与输入无关。</p>
 <p>稳定性是相对某个平衡状态而言的。线性定常系统，因为只有一个平衡点，所以可以笼统的讲系统的稳定性问题。<br>对于<strong>线性定常系统</strong> lyapunov稳定性判据可基于以下定理：<br>如果对任意给定的<strong>正定实对称矩阵W</strong>，均存在<strong>正定矩阵V</strong>满足下面的方程$$A^TV+VA=-W$$则称系统是稳定的，上述方程称为Lyapunov方程。可由MATLAB工具箱中lyap函数求解，方式为V=lyap(A,W)。</p>
+<h2 id="LTI-Viewer"><a href="#LTI-Viewer" class="headerlink" title="LTI Viewer"></a>LTI Viewer</h2><p>是对线性定常系统进行仿真的图形工具</p>
+<h4 id="直观的理解PID控制"><a href="#直观的理解PID控制" class="headerlink" title="直观的理解PID控制"></a>直观的理解PID控制</h4><p><img src="https://en.wikipedia.org/wiki/File:PID_Compensation_Animated.gif" alt=""></p>
 
       
     </div>
@@ -543,16 +547,6 @@
           
 
           
-            <div class="links-of-author motion-element">
-                
-                  <span class="links-of-author-item">
-                    <a href="https://blog.csdn.net/qq_40789676" target="_blank" title="CSDN">
-                      
-                        <i class="fa fa-fw fa-CSDN"></i>CSDN</a>
-                  </span>
-                
-            </div>
-          
 
           
           
@@ -575,7 +569,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#拉氏变换"><span class="nav-number">1.</span> <span class="nav-text">拉氏变换</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#z变换"><span class="nav-number">2.</span> <span class="nav-text">z变换</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#控制率"><span class="nav-number">3.</span> <span class="nav-text">控制率</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#微分几何"><span class="nav-number">4.</span> <span class="nav-text">微分几何</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#分形几何"><span class="nav-number">5.</span> <span class="nav-text">分形几何</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#一些能充满整个平面的Peano曲线"><span class="nav-number">5.1.</span> <span class="nav-text">一些能充满整个平面的Peano曲线</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#帕累托原则"><span class="nav-number">6.</span> <span class="nav-text">帕累托原则</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#本福德定律"><span class="nav-number">7.</span> <span class="nav-text">本福德定律</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#稳定性"><span class="nav-number">8.</span> <span class="nav-text">稳定性</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#拉氏变换"><span class="nav-number">1.</span> <span class="nav-text">拉氏变换</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#z变换"><span class="nav-number">2.</span> <span class="nav-text">z变换</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#控制率"><span class="nav-number">3.</span> <span class="nav-text">控制率</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#微分几何"><span class="nav-number">4.</span> <span class="nav-text">微分几何</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#分形几何"><span class="nav-number">5.</span> <span class="nav-text">分形几何</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#一些能充满整个平面的Peano曲线"><span class="nav-number">5.1.</span> <span class="nav-text">一些能充满整个平面的Peano曲线</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#帕累托原则"><span class="nav-number">6.</span> <span class="nav-text">帕累托原则</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#本福德定律"><span class="nav-number">7.</span> <span class="nav-text">本福德定律</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#稳定性"><span class="nav-number">8.</span> <span class="nav-text">稳定性</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#LTI-Viewer"><span class="nav-number"></span> <span class="nav-text">LTI Viewer</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#直观的理解PID控制"><span class="nav-number">0.1.</span> <span class="nav-text">直观的理解PID控制</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -635,7 +629,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">扯了共7.1k字</span>
+  <span class="post-count">扯了共7.2k字</span>
 </div>
 
 
