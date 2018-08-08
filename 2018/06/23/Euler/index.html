@@ -5,7 +5,7 @@
   
 
 
-<html class="theme-next gemini use-motion" lang="zh-Hans">
+<html class="theme-next muse use-motion" lang="zh-Hans">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -84,7 +84,7 @@
   
     
     
-    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Lobster Two:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+    <link href="https://fonts.cat.net/css?family=Lato:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Lobster Two:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
   
 
 
@@ -132,7 +132,7 @@
 <meta property="og:description" content="练习发现自己用Mathematica还是太水。。。准备做一些欧拉习题来提升下自己对Mathematica的使用和锻炼一下自己的思维，代码并不想整理，想到哪写到哪。。。。懒得去优化。。。。只想要个结果。在这个网站可以找到翻译的中文版，有时间就做两题去思考下。。。。看能独立完成多少，之前也有做，不过因为时间关系放弃了，现在重新捡起来，就当熟悉下这个软件了~ 1-101 If we list all t">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://projecteuler.net/project/images/p015.gif">
-<meta property="og:updated_time" content="2018-07-20T02:08:53.479Z">
+<meta property="og:updated_time" content="2018-08-06T23:12:39.965Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Euler（1-20）">
 <meta name="twitter:description" content="练习发现自己用Mathematica还是太水。。。准备做一些欧拉习题来提升下自己对Mathematica的使用和锻炼一下自己的思维，代码并不想整理，想到哪写到哪。。。。懒得去优化。。。。只想要个结果。在这个网站可以找到翻译的中文版，有时间就做两题去思考下。。。。看能独立完成多少，之前也有做，不过因为时间关系放弃了，现在重新捡起来，就当熟悉下这个软件了~ 1-101 If we list all t">
@@ -144,7 +144,7 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
-    scheme: 'Gemini',
+    scheme: 'Muse',
     version: '5.1.4',
     sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
     fancybox: true,
@@ -223,6 +223,12 @@
   </div>
 </div>
 
+
+
+<div class="top-scroll-bar"></div>
+
+
+
 <nav class="site-nav">
   
 
@@ -297,7 +303,7 @@
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="流殇、浅忆">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="https://img-blog.csdn.net/20180803073344485?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNzg5Njc2/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -334,6 +340,17 @@
           
 
           
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/06/23/Euler/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2018/06/23/Euler/" itemprop="commentCount"></span>
+                </a>
+              </span>
             
           
 
@@ -416,6 +433,13 @@ temp1 = Partition[StringReplace[n, Whitespace -&gt; &quot;&quot;] // Characters,
 Table[Times @@ temp1 [[i ]], {i, 1, Length@temp1}] // Max
 
 (*错误审题答案解题过程是五个数字做个划分，无语，我就是第二种。。。。错误的就不贴了。。。。调试真的很不舒服。。。*) 
+我在官网上重新做的时候发现题目不是这个样纸的。。。。。。。醉啦
+
+于是乎~重做了，因为这次拷贝出来的没有掺杂其他字符，所以处理起来方便了好多。
+
+restruct = StringSplit@n // Characters // Flatten // ToExpression;
+
+Partition[restruct, 13, 1] // Times @@@ # &amp; // Max
 </code></pre><p>9 A Pythagorean triplet is a set of three natural numbers, a &lt; b &lt; c, for which,</p>
 <p>a^2 + b^2 = c^2<br>For example, 32 + 42 = 9 + 16 = 25 = 52.</p>
 <p>There exists exactly one Pythagorean triplet for which a + b + c = 1000.<br>Find the product abc.</p>
@@ -624,14 +648,6 @@ Sort[t][[-1]]
 <p>For example, 10! = 10 × 9 × … × 3 × 2 × 1 = 3628800, and the sum of the digits in the number 10! is 3 + 6 + 2 + 8 + 8 + 0 + 0 = 27.</p>
 <p>Find the sum of the digits in the number 100!</p>
 <pre><code>100! // IntegerDigits // Total
-</code></pre><p>21 Let d(n) be defined as the sum of proper divisors of n (numbers less than n which divide evenly into n).<br>If d(a) = b and d(b) = a, where a ≠ b, then a and b are an amicable pair and each of a and b are called amicable numbers.</p>
-<p>For example, the proper divisors of 220 are 1, 2, 4, 5, 10, 11, 20, 22, 44, 55 and 110; therefore d(220) = 284. The proper divisors of 284 are 1, 2, 4, 71 and 142; so d(284) = 220.</p>
-<p>Evaluate the sum of all the amicable numbers under 10000.</p>
-<pre><code>尴尬。。。。一开始感觉还简单，思路也有，就是没实现出来哎~真水我~下面是别人的答案，写的很好，很不错。
-Timing[total = 0;
- For[ii = 1, ii &lt; max, ii++, a = Tr@Divisors@ii - ii;
-  If[a &lt; max &amp;&amp; a != ii &amp;&amp; Tr@Divisors@a - a == ii, total += ii]];
- total]
 </code></pre>
       
     </div>
@@ -717,6 +733,16 @@ Timing[total = 0;
           
 
   
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    </div>
+
+  
 
 
 
@@ -753,8 +779,12 @@ Timing[total = 0;
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
+              <img class="site-author-image" itemprop="image"
+                src="https://img-blog.csdn.net/20180803073344485?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNzg5Njc2/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70"
+                alt="流殇、浅忆" />
+            
               <p class="site-author-name" itemprop="name">流殇、浅忆</p>
-              <p class="site-description motion-element" itemprop="description"></p>
+              <p class="site-description motion-element" itemprop="description">围在城里的人想逃出来，城外的人想冲进去。</p>
           </div>
 
           <nav class="site-state motion-element">
@@ -764,7 +794,7 @@ Timing[total = 0;
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-count">12</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -780,7 +810,7 @@ Timing[total = 0;
                <h3 class="widget-title">Tag Cloud</h3>
                <div id="myCanvasContainer" class="widget tagcloud">
                <canvas width="250" height="250" id="resCanvas" style="width=100%">
-                 <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/2018/">2018</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Euler-Project/">Euler Project</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/LaTeX/">LaTeX</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mathematica/">Mathematica</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/图像处理/">图像处理</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/快捷键/">快捷键</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/控制/">控制</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/文学/">文学</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/杂记/">杂记</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/算法/">算法</a><span class="tag-list-count">1</span></li></ul>
+                 <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/2018/">2018</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Euler-Project/">Euler Project</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/LaTeX/">LaTeX</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mathematica/">Mathematica</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/图像处理/">图像处理</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/快捷键/">快捷键</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/控制/">控制</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/文学/">文学</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/杂记/">杂记</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/算法/">算法</a><span class="tag-list-count">1</span></li></ul>
                </canvas>
                 </div>
 				</div>
@@ -878,14 +908,14 @@ Timing[total = 0;
 
 
 
-  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
 
 
 
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">扯了共14.6k字</span>
+  <span class="post-count">扯了共16.6k字</span>
 </div>
 
 
@@ -989,15 +1019,20 @@ Timing[total = 0;
 
 
 
+
+
+
+  <script type="text/javascript" src="/js/src/custom/custom.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/custom/custom.js?v=5.1.4"></script>
+
+
   
   
-
-
-  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
-
-  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
-
-
 
   
   <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
@@ -1014,6 +1049,26 @@ Timing[total = 0;
 
   
 
+
+  
+
+    
+      <script id="dsq-count-scr" src="https://.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'http://yoursite.com/2018/06/23/Euler/';
+          this.page.identifier = '2018/06/23/Euler/';
+          this.page.title = 'Euler（1-20）';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
 
   
 
@@ -1061,6 +1116,8 @@ Timing[total = 0;
   
 
   
+  
+
 
   
 
@@ -1075,7 +1132,7 @@ Timing[total = 0;
 
 
   
-<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"model":{"jsonPath":"/live2dw/assets/haruto.model.json"},"display":{"hOffset":-50},"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/"});</script></body>
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"model":{"jsonPath":"/live2dw/assets/haruto.model.json"},"display":{"hOffset":1150},"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/"});</script></body>
 </html>
 
 <!-- 页面点击小红心 -->
