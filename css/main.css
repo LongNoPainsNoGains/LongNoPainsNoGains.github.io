@@ -1063,7 +1063,7 @@ pre .javascript .function {
   right: 30px;
   z-index: 1050;
   padding: 0 6px;
-  width: 24px;
+  width: initial;
   background: #222;
   font-size: 12px;
   opacity: 1;
@@ -1832,7 +1832,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #7758a6;
+  background: #ff7d9e;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -2692,6 +2692,9 @@ pre {
   width: 100%;
   overflow-x: auto;
   vertical-align: bottom;
+}
+.header {
+  background: url("http://ojoba1c98.bkt.clouddn.com/img/header/header_background.jpg");
 }
 .site-meta {
   background-image: linear-gradient(90deg, #f79533 0%, #f37055 15%, #ef4e7b 30%, #a166ab 44%, #5073b8 58%, #1098ad 72%, #07b39b 86%, #6dba82 100%);
