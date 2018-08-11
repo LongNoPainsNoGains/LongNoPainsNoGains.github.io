@@ -1832,7 +1832,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #ff7d9e;
+  background: #8a2bff;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -2699,6 +2699,13 @@ pre {
 .site-meta {
   background-image: linear-gradient(90deg, #f79533 0%, #f37055 15%, #ef4e7b 30%, #a166ab 44%, #5073b8 58%, #1098ad 72%, #07b39b 86%, #6dba82 100%);
 }
+.site-title {
+  font-size: 45px;
+  font-weight: bold;
+  color: #bfa7a7;
+  line-height: 50px;
+  letter-spacing: 27px;
+}
 .brand {
   background-color: rgba(255,255,255,0);
   margin-top: 15px;
@@ -2767,12 +2774,26 @@ span#inline-purple {
   border-radius: 0;
   background-color: #9954bb;
 }
-.site-title {
-  font-size: 75px;
-  font-weight: bold;
-  color: #fff;
-  line-height: 80px;
-  letter-spacing: 3px;
+* {
+  cursor: url("/images/qianyi.png"), auto !important;
+}
+:active {
+  cursor: url("/images/qianyi.png"), auto !important;
+}
+a {
+  color: rgba(0,0,0,0.8);
+}
+a:hover {
+  color: #ff106c;
+  border-bottom-color: #ff106c;
+}
+body {
+  position: relative;
+  font-family: STXingkai;
+  font-size: 14px;
+  line-height: 2;
+  color: #555;
+  background: #fff;
 }
 .site-subtitle {
   margin: 0px;
@@ -2792,6 +2813,43 @@ span#inline-purple {
   padding: 5px;
   background-color: rgba(255,255,255,0.75);
   box-shadow: 0px 10px 10px 0px rgba(0,0,0,0.15);
+}
+.site-subtitle {
+  margin: 2px;
+  font-size: 20px;
+  letter-spacing: 1px;
+  padding-bottom: 3px;
+  font-weight: bold;
+  color: #ffa92f;
+  border-bottom-width: 2px;
+  border-bottom-style: solid;
+  border-bottom-color: #a166ab;
+}
+.posts-expand .post-title-link::before {
+  background-image: linear-gradient(90deg, #a166ab 0%, #ef4e7b 25%, #f37055 50%, #ef4e7b 75%, #a166ab 100%);
+}
+.tag-cloud {
+  margin: -80px 50px 40px 50px;
+  box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.5);
+  background-color: #fff;
+  padding: 86px 36px 36px 36px;
+}
+.tag-cloud-title {
+  margin-bottom: 15px;
+}
+@media (max-width: 767px) {
+  .tag-cloud {
+    margin: -73px 15px 50px 15px;
+    padding: 86px 5px 36px 5px;
+  }
+}
+.site-title {
+  display: inline-block;
+  vertical-align: top;
+  line-height: 36px;
+  font-size: 30px;
+  font-weight: normal;
+  font-family: 'Lobster Two', 'Lato', "PingFang SC", "STXingkai", sans-serif;
 }
 .posts-expand .post-body img {
   border: none;
