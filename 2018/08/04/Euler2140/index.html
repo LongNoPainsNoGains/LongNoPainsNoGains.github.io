@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-
+<!-- 背景动画 -->
+<script type="text/javascript" src="/js/src/particle.js"></script>
 
 
   
@@ -13,21 +14,7 @@
 <meta name="theme-color" content="#222">
 
 
-<script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
-<link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
-<style>
-    .pace .pace-progress {
-        background: #ff009e; /*进度条颜色*/
-        height: 3px;
-    }
-    .pace .pace-progress-inner {
-         box-shadow: 0 0 10px #ff009e, 0 0 5px #ff009e; /*阴影颜色*/
-    }
-    .pace .pace-activity {
-        border-top-color: #ff009e;    /*上边框颜色*/
-        border-left-color: #ff009e;    /*左边框颜色*/
-    }
-</style>
+
 
 
 
@@ -141,17 +128,17 @@
 
 
 
-<meta name="description" content="练习虽说时间异常的紧张，解这些题就当是娱乐了，享受思考的乐趣。 21 Let d(n) be defined as the sum of proper divisors of n (numbers less than n which divide evenly into n).If d(a) = b and d(b) = a, where a ≠ b, then a and b are an am">
+<meta name="description" content="练习&amp;emsp;&amp;emsp;虽说时间异常的紧张，解这些题就当是娱乐了，享受思考的乐趣。 21 Let d(n) be defined as the sum of proper divisors of n (numbers less than n which divide evenly into n).If d(a) = b and d(b) = a, where a ≠ b, then a and">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Euler(21-40)">
 <meta property="og:url" content="http://yoursite.com/2018/08/04/Euler2140/index.html">
 <meta property="og:site_name" content="写在青春边上">
-<meta property="og:description" content="练习虽说时间异常的紧张，解这些题就当是娱乐了，享受思考的乐趣。 21 Let d(n) be defined as the sum of proper divisors of n (numbers less than n which divide evenly into n).If d(a) = b and d(b) = a, where a ≠ b, then a and b are an am">
+<meta property="og:description" content="练习&amp;emsp;&amp;emsp;虽说时间异常的紧张，解这些题就当是娱乐了，享受思考的乐趣。 21 Let d(n) be defined as the sum of proper divisors of n (numbers less than n which divide evenly into n).If d(a) = b and d(b) = a, where a ≠ b, then a and">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-08-05T14:59:09.762Z">
+<meta property="og:updated_time" content="2018-08-19T11:53:40.704Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Euler(21-40)">
-<meta name="twitter:description" content="练习虽说时间异常的紧张，解这些题就当是娱乐了，享受思考的乐趣。 21 Let d(n) be defined as the sum of proper divisors of n (numbers less than n which divide evenly into n).If d(a) = b and d(b) = a, where a ≠ b, then a and b are an am">
+<meta name="twitter:description" content="练习&amp;emsp;&amp;emsp;虽说时间异常的紧张，解这些题就当是娱乐了，享受思考的乐趣。 21 Let d(n) be defined as the sum of proper divisors of n (numbers less than n which divide evenly into n).If d(a) = b and d(b) = a, where a ≠ b, then a and">
 
 
 
@@ -213,7 +200,8 @@
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-brand-wrapper">
+      <div class="header-inner">//
+<div class="site-brand-wrapper">
   <div class="site-meta ">
     
 
@@ -391,67 +379,14 @@
       
 
       
-        <h2 id="练习"><a href="#练习" class="headerlink" title="练习"></a>练习</h2><p>虽说时间异常的紧张，解这些题就当是娱乐了，享受思考的乐趣。</p>
+        <h2 id="练习"><a href="#练习" class="headerlink" title="练习"></a>练习</h2><p>&emsp;&emsp;虽说时间异常的紧张，解这些题就当是娱乐了，享受思考的乐趣。</p>
 <p>21 Let d(n) be defined as the sum of proper divisors of n (numbers less than n which divide evenly into n).<br>If d(a) = b and d(b) = a, where a ≠ b, then a and b are an amicable pair and each of a and b are called amicable numbers.</p>
 <p>For example, the proper divisors of 220 are 1, 2, 4, 5, 10, 11, 20, 22, 44, 55 and 110; therefore d(220) = 284. The proper divisors of 284 are 1, 2, 4, 71 and 142; so d(284) = 220.</p>
-<p>Evaluate the sum of all the amicable numbers under 10000.</p>
-<pre><code>尴尬。。。。一开始感觉还简单，思路也有，就是没实现出来哎~真水我~下面是别人的答案，写的很好，很不错。
-Timing[total = 0;
- For[ii = 1, ii &lt; max, ii++, a = Tr@Divisors@ii - ii;
-  If[a &lt; max &amp;&amp; a != ii &amp;&amp; Tr@Divisors@a - a == ii, total += ii]];
- total]
-</code></pre><p>但是。。。。。。。早上突然的思路。。。。。加上编程序解决这个题没超过五分钟。。。。。。。</p>
-<pre><code>d[n_] := Divisors[n] // Most // Total;
-
-a = Position[Table[d[d[i]] == i &amp;&amp; d[i] != i, {i, 10000}], True] // 
-   Flatten // Total
-</code></pre><p>22.Using names.txt  (right click and ‘Save Link/Target As…’), a 46K text file containing over five-thousand first names, begin by sorting it into alphabetical order. Then working out the alphabetical value for each name, multiply this value by its alphabetical position in the list to obtain a name score.</p>
-<p>For example, when the list is sorted into alphabetical order, COLIN, which is worth 3 + 15 + 12 + 9 + 14 = 53, is the 938th name in the list. So, COLIN would obtain a score of 938 * 53 = 49714.</p>
-<p>What is the total of all the name scores in the file?</p>
-<pre><code>  由于a比较长，所以直接就不粘贴上来了~，可以先去a的前几个进行测试，让后再对整体进行操作就好了~
- rule = MapThread[Rule, ] &amp;@CharacterRange[&quot;A&quot;, &quot;Z&quot;];
-
-  b = StringReplace[a, rule] // Plus @@@ # &amp;
-
-  Range@Length@a . b
-
-  850081394
-</code></pre><p>24.A permutation is an ordered arrangement of objects. For example, 3124 is one possible permutation of the digits 1, 2, 3 and 4. If all of the permutations are listed numerically or alphabetically, we call it lexicographic order. The lexicographic permutations of 0, 1 and 2 are:</p>
+<p>Evaluate the sum of all the amicable numbers under 10000.<br><figure class="highlight mathematica"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">	尴尬。。。。一开始感觉还简单，思路也有，就是没实现出来哎~真水我~下面是别人的答案，写的很好，很不错。</span><br><span class="line">	<span class="keyword">Timing</span>[total = <span class="number">0</span>;</span><br><span class="line">	 <span class="keyword">For</span>[ii = <span class="number">1</span>, ii &lt; max, ii++, a = <span class="keyword">Tr</span>@<span class="keyword">Divisors</span>@ii - ii;</span><br><span class="line">	  <span class="keyword">If</span>[a &lt; max &amp;&amp; a != ii &amp;&amp; <span class="keyword">Tr</span>@<span class="keyword">Divisors</span>@a - a == ii, total += ii]];</span><br><span class="line">	 total]</span><br><span class="line">但是。。。。。。。早上突然的思路。。。。。加上编程序解决这个题没超过五分钟。。。。。。。</span><br><span class="line"></span><br><span class="line">	d[n_] := <span class="keyword">Divisors</span>[n] // <span class="keyword">Most</span> // <span class="keyword">Total</span>;</span><br><span class="line">	</span><br><span class="line">	a = <span class="keyword">Position</span>[<span class="keyword">Table</span>[d[d[i]] == i &amp;&amp; d[i] != i, &#123;i, 10000&#125;], <span class="keyword">True</span>] // </span><br><span class="line">	   <span class="keyword">Flatten</span> // <span class="keyword">Total</span></span><br><span class="line">``` </span><br><span class="line"><span class="number">22.</span><span class="keyword">Using</span> names.txt  (right click and <span class="string">'Save Link/Target As...'</span>), a <span class="number">46</span><span class="keyword">K</span> text file containing over five-thousand first names, begin by sorting it into alphabetical order. Then working out the alphabetical value for each name, multiply this value by its alphabetical position in the list to obtain a name score.</span><br><span class="line"></span><br><span class="line"><span class="keyword">For</span> example, when the list is sorted into alphabetical order, COLIN, which is worth <span class="number">3</span> + <span class="number">15</span> + <span class="number">12</span> + <span class="number">9</span> + <span class="number">14</span> = <span class="number">53</span>, is the <span class="number">938</span>th name in the list. So, COLIN would obtain a score of <span class="number">938</span> * <span class="number">53</span> = <span class="number">49714.</span></span><br><span class="line"></span><br><span class="line">What is the total of all the name scores in the file?</span><br><span class="line"></span><br><span class="line">``` mathematica	</span><br><span class="line">	  由于a比较长，所以直接就不粘贴上来了~，可以先去a的前几个进行测试，让后再对整体进行操作就好了~</span><br><span class="line">	 rule = <span class="keyword">MapThread</span>[<span class="keyword">Rule</span>, &#123;#, Range@Length@#&#125;] &amp;@<span class="keyword">CharacterRange</span>[<span class="string">"A"</span>, <span class="string">"Z"</span>];</span><br><span class="line">	</span><br><span class="line">	  b = <span class="keyword">StringReplace</span>[a, rule] // <span class="keyword">Plus</span> @@@ # &amp;</span><br><span class="line">	</span><br><span class="line">	  <span class="keyword">Range</span>@<span class="keyword">Length</span>@a . b</span><br><span class="line">	</span><br><span class="line">	  <span class="number">850081394</span></span><br></pre></td></tr></table></figure></p>
+<p>24.A permutation is an ordered arrangement of objects. For example, 3124 is one possible permutation of the digits 1, 2, 3 and 4. If all of the permutations are listed numerically or alphabetically, we call it lexicographic order. The lexicographic permutations of 0, 1 and 2 are:</p>
 <p>012   021   102   120   201   210</p>
-<p>What is the millionth lexicographic permutation of the digits 0, 1, 2, 3, 4, 5, 6, 7, 8 and 9?</p>
-<pre><code> Permutations[Range[0, 9] ] [[10^6 ]] // FromDigits
+<p>What is the millionth lexicographic permutation of the digits 0, 1, 2, 3, 4, 5, 6, 7, 8 and 9?<br><figure class="highlight mathematica"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br></pre></td><td class="code"><pre><span class="line">	 <span class="keyword">Permutations</span>[<span class="keyword">Range</span>[<span class="number">0</span>, <span class="number">9</span>] ] [[<span class="number">10</span>^<span class="number">6</span> ]] // <span class="keyword">FromDigits</span></span><br><span class="line">	</span><br><span class="line">	 <span class="number">2783915460</span></span><br><span class="line">``` </span><br><span class="line"><span class="number">25.</span>The <span class="keyword">Fibonacci</span> sequence is defined by the recurrence relation:</span><br><span class="line">``` </span><br><span class="line">    F_(n) = F_(n\[<span class="keyword">Minus</span>]<span class="number">1</span>) + F_(n\[<span class="keyword">Minus</span>]<span class="number">2</span>), where F_(<span class="number">1</span>) = <span class="number">1</span> and F_(<span class="number">2</span>) = <span class="number">1.</span></span><br><span class="line">``` </span><br><span class="line">Hence the first <span class="number">12</span> terms will be:</span><br><span class="line"></span><br><span class="line">    F_(<span class="number">1</span>) = <span class="number">1</span></span><br><span class="line">    F_(<span class="number">2</span>) = <span class="number">1</span></span><br><span class="line">    F_(<span class="number">3</span>) = <span class="number">2</span></span><br><span class="line">    F_(<span class="number">4</span>) = <span class="number">3</span></span><br><span class="line">    F_(<span class="number">5</span>) = <span class="number">5</span></span><br><span class="line">    F_(<span class="number">6</span>) = <span class="number">8</span></span><br><span class="line">    F_(<span class="number">7</span>) = <span class="number">13</span></span><br><span class="line">    F_(<span class="number">8</span>) = <span class="number">21</span></span><br><span class="line">    F_(<span class="number">9</span>) = <span class="number">34</span></span><br><span class="line">    F_(<span class="number">10</span>) = <span class="number">55</span></span><br><span class="line">    F_(<span class="number">11</span>) = <span class="number">89</span></span><br><span class="line">    F_(<span class="number">12</span>) = <span class="number">144</span></span><br><span class="line"></span><br><span class="line">The <span class="number">12</span>th term, F_(<span class="number">12</span>), is the first term to contain three digits.</span><br><span class="line"></span><br><span class="line">What is the first term in the <span class="keyword">Fibonacci</span> sequence to contain <span class="number">1000</span> digits?</span><br><span class="line">``` mathematica</span><br><span class="line">	fi[n_] := <span class="keyword">Fibonacci</span>[n] // <span class="keyword">IntegerDigits</span> /@ # &amp;；</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">While</span>[fi[i] &lt; <span class="number">1000</span>, i++]</span><br><span class="line"></span><br><span class="line">``` </span><br><span class="line"></span><br><span class="line"><span class="number">29.</span>Consider all integer combinations of a^(b) for <span class="number">2</span> &lt;= a  &lt;= <span class="number">5</span> and <span class="number">2</span> &lt;= b  &lt;= <span class="number">5</span>:</span><br><span class="line"></span><br><span class="line">    <span class="number">2</span>^(<span class="number">2</span>)=<span class="number">4</span>, <span class="number">2</span>^(<span class="number">3</span>)=<span class="number">8</span>, <span class="number">2</span>^(<span class="number">4</span>)=<span class="number">16</span>, <span class="number">2</span>^(<span class="number">5</span>)=<span class="number">32</span></span><br><span class="line">    <span class="number">3</span>^(<span class="number">2</span>)=<span class="number">9</span>, <span class="number">3</span>^(<span class="number">3</span>)=<span class="number">27</span>, <span class="number">3</span>^(<span class="number">4</span>)=<span class="number">81</span>, <span class="number">3</span>^(<span class="number">5</span>)=<span class="number">243</span></span><br><span class="line">    <span class="number">4</span>^(<span class="number">2</span>)=<span class="number">16</span>, <span class="number">4</span>^(<span class="number">3</span>)=<span class="number">64</span>, <span class="number">4</span>^(<span class="number">4</span>)=<span class="number">256</span>, <span class="number">4</span>^(<span class="number">5</span>)=<span class="number">1024</span></span><br><span class="line">    <span class="number">5</span>^(<span class="number">2</span>)=<span class="number">25</span>, <span class="number">5</span>^(<span class="number">3</span>)=<span class="number">125</span>, <span class="number">5</span>^(<span class="number">4</span>)=<span class="number">625</span>, <span class="number">5</span>^(<span class="number">5</span>)=<span class="number">3125</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">If</span> they are then placed in numerical order, with any repeats removed, we get the following sequence of <span class="number">15</span> distinct terms:</span><br><span class="line"></span><br><span class="line"><span class="number">4</span>, <span class="number">8</span>, <span class="number">9</span>, <span class="number">16</span>, <span class="number">25</span>, <span class="number">27</span>, <span class="number">32</span>, <span class="number">64</span>, <span class="number">81</span>, <span class="number">125</span>, <span class="number">243</span>, <span class="number">256</span>, <span class="number">625</span>, <span class="number">1024</span>, <span class="number">3125</span></span><br><span class="line"></span><br><span class="line">How many distinct terms are in the sequence generated by a^(b) for <span class="number">2</span> &lt;= a &lt;= <span class="number">100</span> and <span class="number">2</span> &lt;= b &lt;= <span class="number">100</span>?</span><br><span class="line">``` mathematica</span><br><span class="line">	<span class="keyword">Outer</span>[<span class="keyword">Power</span>, #, #] &amp;@<span class="keyword">Range</span>[<span class="number">2</span>, <span class="number">100</span>] // <span class="keyword">Flatten</span> // <span class="keyword">Union</span> // <span class="keyword">Length</span></span><br><span class="line">``` </span><br><span class="line"></span><br><span class="line"><span class="number">30.</span>Surprisingly there are only three numbers that can be written as the sum of fourth powers of their digits:</span><br><span class="line"></span><br><span class="line"><span class="number">1634</span> = <span class="number">14</span> + <span class="number">64</span> + <span class="number">34</span> + <span class="number">44</span></span><br><span class="line"><span class="number">8208</span> = <span class="number">84</span> + <span class="number">24</span> + <span class="number">04</span> + <span class="number">84</span></span><br><span class="line"><span class="number">9474</span> = <span class="number">94</span> + <span class="number">44</span> + <span class="number">74</span> + <span class="number">44</span></span><br><span class="line">As <span class="number">1</span> = <span class="number">14</span> is not a sum it is not included.</span><br><span class="line"></span><br><span class="line">The sum of these numbers is <span class="number">1634</span> + <span class="number">8208</span> + <span class="number">9474</span> = <span class="number">19316.</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">Find</span> the sum of all the numbers that can be written as the sum of fifth powers of their digits.</span><br><span class="line"></span><br><span class="line">``` mathematica</span><br><span class="line">	maxIter = <span class="number">9</span>^<span class="number">5</span> <span class="number">5</span>;</span><br><span class="line">	allList = digits /@ <span class="keyword">Range</span>@maxIter;</span><br><span class="line">	((allList^<span class="number">5</span> // <span class="keyword">Plus</span> @@@ # &amp;) - <span class="keyword">Range</span>@maxIter)~<span class="keyword">Position</span>~<span class="number">0</span>;</span><br><span class="line">	&#123;&#123;1&#125;, &#123;4150&#125;, &#123;4151&#125;, &#123;54748&#125;, &#123;92727&#125;, &#123;93084&#125;, &#123;194979&#125;&#125; // </span><br><span class="line">	  <span class="keyword">Flatten</span> // <span class="keyword">Total</span>;</span><br><span class="line">	%<span class="number">-1</span>;</span><br><span class="line"></span><br><span class="line">	因为想到哪写到哪，没简化，所以很低水准。。。。</span><br></pre></td></tr></table></figure></p>
 
- 2783915460
-</code></pre><p>25.The Fibonacci sequence is defined by the recurrence relation:</p>
-<pre><code>F_(n) = F_(n\[Minus]1) + F_(n\[Minus]2), where F_(1) = 1 and F_(2) = 1.
-</code></pre><p>Hence the first 12 terms will be:</p>
-<pre><code>F_(1) = 1
-F_(2) = 1
-F_(3) = 2
-F_(4) = 3
-F_(5) = 5
-F_(6) = 8
-F_(7) = 13
-F_(8) = 21
-F_(9) = 34
-F_(10) = 55
-F_(11) = 89
-F_(12) = 144
-</code></pre><p>The 12th term, F_(12), is the first term to contain three digits.</p>
-<p>What is the first term in the Fibonacci sequence to contain 1000 digits?</p>
-<pre><code>fi[n_] := Fibonacci[n] // IntegerDigits /@ # &amp;；
-
-While[fi[i] &lt; 1000, i++]
-</code></pre><p>29.Consider all integer combinations of a^(b) for 2 &lt;= a  &lt;= 5 and 2 &lt;= b  &lt;= 5:</p>
-<pre><code>2^(2)=4, 2^(3)=8, 2^(4)=16, 2^(5)=32
-3^(2)=9, 3^(3)=27, 3^(4)=81, 3^(5)=243
-4^(2)=16, 4^(3)=64, 4^(4)=256, 4^(5)=1024
-5^(2)=25, 5^(3)=125, 5^(4)=625, 5^(5)=3125
-</code></pre><p>If they are then placed in numerical order, with any repeats removed, we get the following sequence of 15 distinct terms:</p>
-<p>4, 8, 9, 16, 25, 27, 32, 64, 81, 125, 243, 256, 625, 1024, 3125</p>
-<p>How many distinct terms are in the sequence generated by a^(b) for 2 &lt;= a &lt;= 100 and 2 &lt;= b &lt;= 100?</p>
-<pre><code>Outer[Power, #, #] &amp;@Range[2, 100] // Flatten // Union // Length
-</code></pre>
       
     </div>
     
@@ -681,6 +616,16 @@ While[fi[i] &lt; 1000, i++]
         <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
 
+
+
+<!-- 图片轮播js文件cdn -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-backstretch/2.0.4/jquery.backstretch.min.js"></script>
+
+<!-- 自定义的js文件 -->
+<script type="text/javascript" src="/js/src/custom.js"></script>
+
+
+
 <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
@@ -718,7 +663,7 @@ While[fi[i] &lt; 1000, i++]
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">扯了共16.8k字</span>
+  <span class="post-count">扯了共17.7k字</span>
 </div>
 
 
@@ -937,8 +882,9 @@ While[fi[i] &lt; 1000, i++]
 
 
   
-<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"model":{"jsonPath":"/live2dw/assets/haruto.model.json"},"display":{"hOffset":1150},"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/"});</script></body>
+</body>
 </html>
 
 <!-- 页面点击小红心 -->
 <script type="text/javascript" src="/js/src/love.js"></script>
+
