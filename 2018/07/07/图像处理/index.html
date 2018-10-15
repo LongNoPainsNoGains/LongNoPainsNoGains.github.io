@@ -7,7 +7,7 @@
 
 
 <html class="theme-next muse use-motion" lang="zh-Hans">
-<head>
+  <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
@@ -128,18 +128,18 @@
 
 
 
-<meta name="description" content="&amp;emsp;&amp;emsp;每每想到图像处理总是会与ps挂钩，偶然的一次翻了翻图像处理的书，发现挺有趣的，平时也没事用mathematica捣鼓捣鼓自己，也不怎么清楚图像处理，处理的是啥，给我一种感觉，这是属于计算机视觉方面的内容，有些感兴趣，就随手记录记录自己感兴趣的东西罢~ 小波变换（原谅我，怎么提到这个就想起王小波。。。。)  基本概念：  与Fourier变换相比，小波变换是时间（空间）频率的">
+<meta name="description" content="&amp;emsp;&amp;emsp;每每想到图像处理总是会与ps挂钩，偶然的一次翻了翻图像处理的书，发现挺有趣的，平时也没事用mathematica捣鼓捣鼓自己，也不怎么清楚图像处理，处理的是啥，给我一种感觉，这是属于计算机视觉方面的内容，有些感兴趣，就随手记录记录自己感兴趣的东西罢~ 小波变换（原谅我，怎么提到这个就想起王小波。。。。)  基本概念： 与Fourier变换相比，小波变换是时间（空间）频率的局">
 <meta name="keywords" content="图像处理">
 <meta property="og:type" content="article">
 <meta property="og:title" content="图像处理">
 <meta property="og:url" content="http://yoursite.com/2018/07/07/图像处理/index.html">
 <meta property="og:site_name" content="写在青春边上">
-<meta property="og:description" content="&amp;emsp;&amp;emsp;每每想到图像处理总是会与ps挂钩，偶然的一次翻了翻图像处理的书，发现挺有趣的，平时也没事用mathematica捣鼓捣鼓自己，也不怎么清楚图像处理，处理的是啥，给我一种感觉，这是属于计算机视觉方面的内容，有些感兴趣，就随手记录记录自己感兴趣的东西罢~ 小波变换（原谅我，怎么提到这个就想起王小波。。。。)  基本概念：  与Fourier变换相比，小波变换是时间（空间）频率的">
+<meta property="og:description" content="&amp;emsp;&amp;emsp;每每想到图像处理总是会与ps挂钩，偶然的一次翻了翻图像处理的书，发现挺有趣的，平时也没事用mathematica捣鼓捣鼓自己，也不怎么清楚图像处理，处理的是啥，给我一种感觉，这是属于计算机视觉方面的内容，有些感兴趣，就随手记录记录自己感兴趣的东西罢~ 小波变换（原谅我，怎么提到这个就想起王小波。。。。)  基本概念： 与Fourier变换相比，小波变换是时间（空间）频率的局">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-08-13T15:52:17.489Z">
+<meta property="og:updated_time" content="2018-08-23T10:45:37.618Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="图像处理">
-<meta name="twitter:description" content="&amp;emsp;&amp;emsp;每每想到图像处理总是会与ps挂钩，偶然的一次翻了翻图像处理的书，发现挺有趣的，平时也没事用mathematica捣鼓捣鼓自己，也不怎么清楚图像处理，处理的是啥，给我一种感觉，这是属于计算机视觉方面的内容，有些感兴趣，就随手记录记录自己感兴趣的东西罢~ 小波变换（原谅我，怎么提到这个就想起王小波。。。。)  基本概念：  与Fourier变换相比，小波变换是时间（空间）频率的">
+<meta name="twitter:description" content="&amp;emsp;&amp;emsp;每每想到图像处理总是会与ps挂钩，偶然的一次翻了翻图像处理的书，发现挺有趣的，平时也没事用mathematica捣鼓捣鼓自己，也不怎么清楚图像处理，处理的是啥，给我一种感觉，这是属于计算机视觉方面的内容，有些感兴趣，就随手记录记录自己感兴趣的东西罢~ 小波变换（原谅我，怎么提到这个就想起王小波。。。。)  基本概念： 与Fourier变换相比，小波变换是时间（空间）频率的局">
 
 
 
@@ -188,7 +188,9 @@
 
 
 
-</head>
+</head> 
+
+
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
@@ -197,6 +199,8 @@
     
   
 
+  <script type="text/javascript" src="/js/src/dytitle.js"></script>
+  
   <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
@@ -384,27 +388,30 @@
 <h2 id="小波变换"><a href="#小波变换" class="headerlink" title="小波变换"></a>小波变换</h2><p>（<del>原谅我，怎么提到这个就想起王小波。。。。</del>)</p>
 <blockquote>
 <p>基本概念：</p>
+<p id="div-border-top-purple">与Fourier变换相比，小波变换是时间（空间）频率的局部化分析。它通过伸缩平移运算对信号（函数）逐步进行多尺度细化，最终达到高频处时间细分，低频处频率细分，能自动适应时频信号分析的要求，从而聚焦到信号的任意细节。 </p>
+
+
 </blockquote>
-<pre><code>与Fourier变换相比，小波变换是时间（空间）频率的局部化分析。它通过伸缩平移运算对信号（函数）逐步进行多尺度细化，最终达到高频处时间细分，低频处频率细分，能自动适应时频信号分析的要求，从而聚焦到信号的任意细节。
-</code></pre><h3 id="滤波器"><a href="#滤波器" class="headerlink" title="滤波器"></a>滤波器</h3><p>时间域中信号处理的重要方法之一是滤波，即将一个混合信号中的某一分量分离出来或是把它去掉。</p>
+<h3 id="滤波器"><a href="#滤波器" class="headerlink" title="滤波器"></a>滤波器</h3><p>时间域中信号处理的重要方法之一是滤波，即将一个混合信号中的某一分量分离出来或是把它去掉。</p>
 <h4 id="连续滤波器"><a href="#连续滤波器" class="headerlink" title="连续滤波器"></a>连续滤波器</h4><p>任意信号通过滤波器后，其振幅和相位都要发生变形，这就是滤波作用（书中也没怎么介绍连续的，就抄到这。。。）。</p>
 <h4 id="数字滤波器"><a href="#数字滤波器" class="headerlink" title="数字滤波器"></a>数字滤波器</h4><p>数字滤波器分为有限冲激响应（<font color="#FA500"> <strong>FIR</strong> </font>）和无限冲击响应（<font color="#FA500"> <strong>IRR</strong> </font>)两种。</p>
 <h4 id="小波类型"><a href="#小波类型" class="headerlink" title="小波类型"></a>小波类型</h4><p>小波分析在工程应用中一个十分重要的问题是<strong>最优小波基</strong>的选择。</p>
 <blockquote>
 <p>Hear小波</p>
-</blockquote>
-<pre><code>Hear函数是在小波分析中最早用到的一个具有紧支撑的正交小波基函数。类似一个阶梯函数.
-</code></pre><blockquote>
+<p id="div-border-left-red">
+Hear函数是在小波分析中最早用到的一个具有紧支撑的正交小波基函数。类似一个阶梯函数.</p>
+
 <p>Daubechies 小波系</p>
-</blockquote>
-<pre><code>离散正交小波
-</code></pre><blockquote>
+<p id="div-border-left-red">    离散正交小波 </p>
+
 <p>双正交小波（Biorthogonal)小波系</p>
 </blockquote>
-<pre><code>主要应用在信号与图像的重构中
-</code></pre><blockquote>
+<p id="div-border-left-red">主要应用在信号与图像的重构中</p>
+
+<blockquote>
 <p>Coiflet小波系<br>SymletsA小波系<br>Morlet小波<br>MexicanHat小波<br>Meyer函数</p>
 </blockquote>
+<p></p><p id="div-border-left-red">其实抄了一堆的这些也不知道是什么鬼~还是用Mathematica去学习下相关的知识吧~</p><br>按自己的学习套路来，先把自带的帮助过一遍~不过，先要知道图像的存储原理，之前有用过mathematica玩过一些图像，所以很感兴趣，学这个当然不是为了抠图~纯粹为了玩~先花几天时间看看相关的课程去,哈哈~<p></p>
 
       
     </div>
@@ -551,7 +558,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-count">16</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -567,7 +574,7 @@
                <h3 class="widget-title">Tag Cloud</h3>
                <div id="myCanvasContainer" class="widget tagcloud">
                <canvas width="250" height="250" id="resCanvas" style="width=100%">
-                 <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/2018/">2018</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Euler-Project/">Euler Project</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/LaTeX/">LaTeX</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mathematica/">Mathematica</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/图像处理/">图像处理</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/快捷键/">快捷键</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/控制/">控制</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/文学/">文学</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/杂记/">杂记</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/算法/">算法</a><span class="tag-list-count">1</span></li></ul>
+                 <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/2018/">2018</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Euler-Project/">Euler Project</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/LaTeX/">LaTeX</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mathematica/">Mathematica</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/V-rep/">V-rep</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/图像处理/">图像处理</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/快捷键/">快捷键</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/控制/">控制</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/杂记/">杂记</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/算法/">算法</a><span class="tag-list-count">1</span></li></ul>
                </canvas>
                 </div>
 				</div>
@@ -692,7 +699,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">扯了共17.7k字</span>
+  <span class="post-count">扯了共19.5k字</span>
 </div>
 
 
